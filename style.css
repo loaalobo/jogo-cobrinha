@@ -1,0 +1,11 @@
+body{
+    height: 95vh;
+    width: 95;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(2, 80, 2);
+    background-color: rgba(166, 245, 48, 0.815);
+    font-family: fantasy;
+}
