@@ -19,7 +19,7 @@ function criarBG() {
 //a cobrinha será um array de coordenadas
 //adicionaremos um elemento e retiraremos o último (isso vai fazer com que ela ande)
 
-function criarCobrinha() {
+function criarCobrinha(){
     //for percorre todo o tamanho do array e vai incrementar
     for(i=0; i < snake.length; i++){
         context.fillStyle = "green";
@@ -29,7 +29,7 @@ function criarCobrinha() {
 }
 
 //detecta o valor da tela para que a cobrinha ande nas direções que a gente pedir
-document.addEventListener('Keydown', update);
+document.addEventListener('keydown', update);
 
 function update (event){
     if(event.keyCode == 37 && direction != "right") direction = "left";
@@ -39,7 +39,7 @@ function update (event){
 }
 
 //função que atualiza o jogo de tempos em tempos para a cobrinha poder se mexer
-function iniciarJogo() {
+function iniciarJogo(){
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
     if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
