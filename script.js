@@ -9,6 +9,10 @@ snake[0] = {
 
 //variável que cria a direção que a gente quer que a cobrinha tenha
 let direction = "right";
+let food = {
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
+}
 
 //função que desenha o canvas: desenha e define campo
 function criarBG() {
@@ -26,6 +30,12 @@ function criarCobrinha(){
         context.fillRect(snake[i].x, snake[i].y, box, box);
 
     }
+}
+
+//cria a comida
+function drawFood(){
+    context.fillStyle = "red";
+    context.fillRect(food.x, food.y, box, box);
 }
 
 //detecta o valor da tela para que a cobrinha ande nas direções que a gente pedir
@@ -47,6 +57,7 @@ function iniciarJogo(){
 
     criarBG();
     criarCobrinha();
+    drawFood();
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
