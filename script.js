@@ -7,6 +7,9 @@ snake[0] = {
     y: 8 * box
 }
 
+//variável que cria a direção que a gente quer que a cobrinha tenha
+let direction = "right";
+
 //função que desenha o canvas: desenha e define campo
 function criarBG() {
     context.fillStyle = "lightgreen"; //define a cor 
@@ -25,5 +28,33 @@ function criarCobrinha() {
     }
 }
 
-criarBG();
-criarCobrinha();
+//função que atualiza o jogo de tempos em tempos para a cobrinha poder se mexer
+function iniciarJogo() {
+    criarBG();
+    criarCobrinha();
+
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+
+    //condições que vão mostrar o lado para onde a cobrinha vai (coordenadas de aumentar ou diminuir)
+    if(direction == "right") snakeX += box;
+    if(direction == "left") snakeX -= box;
+    if(direction == "up") snakeY -= box;
+    if(direction == "down") snakeY += box;
+
+    snake.pop(); //retira o último elemento do array
+
+    let newHead = {
+        x: snakeX,
+        y: snakeY
+    }
+
+    snake.unshift(newHead);
+}
+
+let jogo = setInterval(iniciarJogo, 100); //intervalo de 100 milisegundos para a função "iniciar jogo"
+
+
+
+
+
